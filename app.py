@@ -1,17 +1,20 @@
 import os
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
-
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['db_url']
 db = SQLAlchemy(app)
+CORS(app)
 
+@cross_origin()
 @app.route('/')
 def index():
     return jsonify({"hello" : "world"})
 
+@cross_origin()
 @app.route('/category')
 def getAll_quiz():
     all_quiz = []
@@ -22,17 +25,19 @@ def getAll_quiz():
             "id" : quiz.id,
             "question" : quiz.question,
             "category" : quiz.category,
-            "answer" : quiz.answer
+            "answer" : quiz.answer,
+            "explanation" : quiz.explanation
         }
         all_quiz.append(results)
 
         return jsonify(
             {
                 "succes" : True,
-                "quiz" : all_quiz,
+                "quiz" : all_quiz
             }
         )
 
+@cross_origin()
 @app.route('/category/<int:id>')
 def get_quiz(id):
     from model import Quiz
@@ -41,17 +46,18 @@ def get_quiz(id):
         "id": quiz.id,
         "question": quiz.question,
         "category": quiz.category,
-        "answer": quiz.answer
+        "answer": quiz.answer,
+        "explanation" : quiz.explanation
     }
 
     return jsonify(
         {
             "succes": True,
-            "quiz": results,
+            "quiz": results
         }
     )
 
-
+@cross_origin()
 @app.route('/category', methods=['POST'])
 def create_quiz():
     quiz_data = request.json
@@ -59,9 +65,10 @@ def create_quiz():
     question = quiz_data['question']
     category = quiz_data['category']
     answer = quiz_data['answer']
+    explanation = quiz_data['explanation']
 
     from model import Quiz
-    quiz = Quiz(question= question, category= category, answer= answer)
+    quiz = Quiz(question= question, category= category, answer= answer, explanation= explanation)
     db.session.add(quiz)
     db.session.commit()
 
