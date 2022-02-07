@@ -15,7 +15,7 @@ def index():
     return jsonify({"hello" : "world"})
 
 @cross_origin()
-@app.route('/category')
+@app.route('/quiz')
 def getAll_quiz():
     all_quiz = []
     from model import Quiz
@@ -30,15 +30,14 @@ def getAll_quiz():
         }
         all_quiz.append(results)
 
-        return jsonify(
-            {
-                "succes" : True,
-                "quiz" : all_quiz
-            }
-        )
+    return jsonify(
+        {
+            "quiz" : all_quiz
+        }
+    )
 
 @cross_origin()
-@app.route('/category/<int:id>')
+@app.route('/quiz/<int:id>')
 def get_quiz(id):
     from model import Quiz
     quiz = Quiz.query.get(id)
@@ -52,13 +51,12 @@ def get_quiz(id):
 
     return jsonify(
         {
-            "succes": True,
             "quiz": results
         }
     )
 
 @cross_origin()
-@app.route('/category', methods=['POST'])
+@app.route('/quiz', methods=['POST'])
 def create_quiz():
     quiz_data = request.json
 
