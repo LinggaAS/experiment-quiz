@@ -1,4 +1,4 @@
-from sqlalchemy import JSON, ARRAY
+from sqlalchemy import JSON, ARRAY, String
 
 from app import db
 
@@ -8,6 +8,6 @@ class Quiz(db.Model):
     question = db.Column(db.String(100), nullable=False)
     category = db.Column(db.String(100), nullable=False)
     answer = db.Column(JSON)
-    explanation = db.Column(ARRAY)
+    explanation = db.Column(ARRAY(String))
 
 #db.create_all()
