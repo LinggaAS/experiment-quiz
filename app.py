@@ -87,20 +87,10 @@ def delete_quiz(id):
 @app.route('/quiz/<int:id>', methods=['PATCH'])
 def update_quiz(id):
     from model import Quiz
-    quiz = Quiz.query.get(id)
+    quiz = Quiz.query.filter(Quiz.id == id)
     quiz_data = request.json
 
-    question = quiz_data['question']
-    category = quiz_data['category']
-    answer = quiz_data['answer']
-    explanation = quiz_data['explanation']
-
-    quiz.question = question
-    quiz.category = category
-    quiz.answer = answer
-    quiz.explanation = explanation
-
-    db.session.add(quiz)
+    quizUpdated = quiz.update(dict(quiz_data))
     db.session.commit()
 
     return jsonify({"succes" : True, "response" : "Quiz updated"})
