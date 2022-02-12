@@ -72,5 +72,16 @@ def create_quiz():
 
     return jsonify({"succes" : True, "response" : "Quiz added"})
 
+@cross_origin()
+@app.route('/quiz/<int:id>', methods=['DELETE'])
+def delete_quiz(id):
+    from model import Quiz
+    quiz = Quiz.query.get(id)
+
+    db.session.delete(quiz)
+    db.session.commit()
+
+    return jsonify({"succes" : True, "response" : "Quiz deleted"})
+
 if __name__ == '__main__':
   app.run(debug=True)
