@@ -8,9 +8,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-          <meta name='theme-color' content='#343434' />
-          <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap' />
-          <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons' />
         </Head>
         <body>
           <Main />
