@@ -1,8 +1,31 @@
+@font-face {
+  font-family: "LEMONMILK";
+  src: url(../public/asset/font/LEMONMILK-Regular.otf);
+}
+
+@font-face {
+  font-family: "LEMONMILK";
+  src: url(../public/asset/font/LEMONMILK-RegularItalic.otf);
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "LEMONMILK";
+  src: url(../public/asset/font/LEMONMILK-Bold.otf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: "LEMONMILK";
+  src: url(../public/asset/font/LEMONMILK-BoldItalic.otf);
+  font-weight: bold;
+  font-style: italic;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: "LEMONMILK", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: #E5E5E5;
 }

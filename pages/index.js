@@ -1,9 +1,10 @@
-import PageMta from '../components/PageMeta';
+import PageMeta from '../components/PageMeta'
+import Landing from '../modules/Landing'
 
 export default function Home() {
   return (
-    <PageMta>
-
-    </PageMta>
+    <PageMeta>
+      <Landing />
+    </PageMeta>
   )
 }

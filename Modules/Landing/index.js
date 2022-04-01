@@ -1,8 +1,12 @@
-import Fragment from 'react'
+import { Fragment } from 'react'
+import Title from './Title'
 
 const Landing = () => {
   return (
-    <Fragment></Fragment>
+    <Fragment>
+      <Title />
+
+    </Fragment>
   )
 }
  
