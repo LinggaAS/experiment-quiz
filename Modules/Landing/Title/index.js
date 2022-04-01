@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import { Box, Typography } from '@mui/material'
 
 const Title = () => {
