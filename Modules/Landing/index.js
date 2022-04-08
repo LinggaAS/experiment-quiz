@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import Categories from './Categories'
 import Title from './Title'
 
 const Landing = () => {
@@ -6,6 +7,7 @@ const Landing = () => {
     <Fragment>
       <Title />
 
+      <Categories />
     </Fragment>
   )
 }

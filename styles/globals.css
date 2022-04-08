@@ -28,6 +28,7 @@ body {
   font-family: "LEMONMILK", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: #E5E5E5;
+  overflow-x: hidden;
 }
 
 a {
@@ -37,4 +38,24 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px
+}
+
+::-webkit-scrollbar-thumb {
+  background: #393939;
+  border-radius: 10px;  
+}
+
+::-webkit-scrollbar:horizontal {
+  width: 6px;
+  height: 13px;
+} 
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #393939;
+  border-radius: 10px;
 }

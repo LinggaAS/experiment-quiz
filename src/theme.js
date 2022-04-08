@@ -33,7 +33,9 @@ const theme = createTheme({
     fontFamily: 'inherit',
     h1: {
       fontSize: '3.583rem',
-      
+    },
+    h2: {
+      fontSize: '2.986rem',
     }
   }
 })
